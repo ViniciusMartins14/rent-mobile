@@ -1,4 +1,4 @@
-import { Stack, usePathname } from "expo-router";
+import {Stack, usePathname, useRouter} from "expo-router";
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -9,31 +9,34 @@ export default function RootLayout() {
 
     const showNavigation = navigationRoutes.includes(pathname);
 
+    const router = useRouter();
+
     return (
         <>
             {/* Stack Navigator */}
             <Stack>
                 <Stack.Screen name="index" options={{ headerShown: false }} />
                 <Stack.Screen name="home" options={{ headerShown: false }} />
+                <Stack.Screen name="discover" options={{ headerShown: false }} />
             </Stack>
 
             {showNavigation && (
                 <View style={styles.bottomNav}>
-                    <TouchableOpacity style={styles.navItem}>
-                        <Ionicons name="home" size={24} color={pathname === '/home' ? "#3A3834" : "#888"} />
-                        <Text style={[styles.navText, pathname === '/home' && { color: "#3A3834" }]}>Home</Text>
+                    <TouchableOpacity style={styles.navItem} onPress={() => router.push('/home')}>
+                        <Ionicons name="home" size={24} color={pathname === '/home' ? "#004038" : "#888"} />
+                        <Text style={[styles.navText, pathname === '/home' && { color: "#004038" }]}>Home</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.navItem} onPress={() => router.push('/discover')}>
+                        <Ionicons name="planet" size={24} color={pathname === '/discover' ? "#004038" : "#888"} />
+                        <Text style={[styles.navText, pathname === '/discover' && { color: "#004038" }]}>Discover</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.navItem}>
-                        <Ionicons name="planet" size={24} color={pathname === '/home' ? "#3A3834" : "#888"} />
-                        <Text style={[styles.navText, pathname === '/discover' && { color: "#3A3834" }]}>Discover</Text>
+                        <Ionicons name="bookmark" size={24} color={pathname === '/favourite' ? "#004038" : "#888"} />
+                        <Text style={[styles.navText, pathname === '/favourite' && { color: "#004038" }]}>Favourite</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.navItem}>
-                        <Ionicons name="bookmark" size={24} color={pathname === '/home' ? "#3A3834" : "#888"} />
-                        <Text style={[styles.navText, pathname === '/favourite' && { color: "#3A3834" }]}>Favourite</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.navItem}>
-                        <Ionicons name="paper-plane" size={24} color={pathname === '/home' ? "#3A3834" : "#888"} />
-                        <Text style={[styles.navText, pathname === '/messages' && { color: "#3A3834" }]}>Messages</Text>
+                        <Ionicons name="paper-plane" size={24} color={pathname === '/messages' ? "#004038" : "#888"} />
+                        <Text style={[styles.navText, pathname === '/messages' && { color: "#004038" }]}>Messages</Text>
                     </TouchableOpacity>
                 </View>
             )}
