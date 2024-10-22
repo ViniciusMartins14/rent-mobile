@@ -15,7 +15,7 @@ const HomeScreen = () => {
                             style={styles.profileImage}
                         />
                         <View>
-                            <Text style={styles.greeting}>Hello Jack</Text>
+                            <Text style={styles.greeting}>Hello Vinicius</Text>
                             <Text style={styles.exploreText}>Let's start Exploring</Text>
                         </View>
                     </View>
@@ -65,26 +65,6 @@ const HomeScreen = () => {
                     </View>
                 </View>
             </ScrollView>
-
-            {/* Bottom Navigation */}
-            <View style={styles.bottomNav}>
-                <TouchableOpacity style={styles.navItem}>
-                    <FontAwesome name="home" size={24} color="#333" />
-                    <Text style={styles.navText}>Home</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <FontAwesome name="search" size={24} color="#888" />
-                    <Text style={styles.navText}>Discover</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <FontAwesome name="heart" size={24} color="#888" />
-                    <Text style={styles.navText}>Favourite</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
-                    <FontAwesome name="envelope" size={24} color="#888" />
-                    <Text style={styles.navText}>Messages</Text>
-                </TouchableOpacity>
-            </View>
         </View>
     );
 };
@@ -92,7 +72,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#EFEEEA',
     },
     overlay: {
         ...StyleSheet.absoluteFillObject,
