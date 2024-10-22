@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView, ImageBackground } from 'react-native';
-import { FontAwesome, Entypo, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import LocationSelect from "@/components/locationPicker";
 
 const HomeScreen = () => {
     return (
         <View style={styles.container}>
-            {/* Header */}
             <ImageBackground source={require('../assets/images/banner.jpg')}>
                 <View style={styles.overlay} />
                 <View style={styles.header}>
@@ -19,10 +19,7 @@ const HomeScreen = () => {
                             <Text style={styles.exploreText}>Let's start Exploring</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={styles.locationButton}>
-                        <Text style={styles.locationText}>New York</Text>
-                        <Entypo name="chevron-down" size={16} color="black" />
-                    </TouchableOpacity>
+                    <LocationSelect />
                 </View>
 
                 <View style={styles.searchContainer}>
@@ -40,7 +37,6 @@ const HomeScreen = () => {
                 </View>
             </ImageBackground>
 
-            {/* Main Content */}
             <ScrollView style={{ padding: 16 }}>
                 <View style={styles.card}>
                     <View style={styles.cardHeader}>
