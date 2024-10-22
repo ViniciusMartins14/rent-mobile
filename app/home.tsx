@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView, ImageBackground } from 'react-native';
-import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import {Entypo, FontAwesome, MaterialIcons} from '@expo/vector-icons';
 import LocationSelect from "@/components/locationPicker";
 
 const HomeScreen = () => {
@@ -52,12 +52,11 @@ const HomeScreen = () => {
                         style={styles.propertyImage}
                     />
                     <View style={styles.propertyInfo}>
-                        <Text style={styles.price}>R$200,00/m</Text>
-                        <View style={styles.detailsRow}>
-                            <Text style={styles.detail}>Bicicleta Mountain nova 6 marchas, acompanha suporte de parede</Text>
-                        </View>
                         <Text style={styles.propertyName}>Bicicleta Mountain Bike ou MTB</Text>
-                        <Text style={styles.propertyLocation}>New York, US</Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginTop: 5 }}>
+                            <Entypo name="location-pin" size={20} color="#636362" />
+                            <Text style={styles.propertyLocation}>New York, US</Text>
+                        </View>
                     </View>
                 </View>
             </ScrollView>
@@ -167,26 +166,16 @@ const styles = StyleSheet.create({
     },
     propertyInfo: {
         alignItems: 'flex-start',
-    },
-    price: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#004038',
-    },
-    detailsRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginVertical: 5,
-    },
-    detail: {
-        color: '#888',
+        backgroundColor: '#E6E3DE',
+        padding: 15,
+        borderRadius: 20,
     },
     propertyName: {
         fontSize: 16,
         fontWeight: '600',
     },
     propertyLocation: {
-        color: '#888',
+        color: '#636362',
     },
     bottomNav: {
         flexDirection: 'row',
